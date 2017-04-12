@@ -43,8 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IOExtensions.cs" />
+    <Compile Include="OpCodes\HaltOpcode.cs" />
+    <Compile Include="OpCodes\IOpCode.cs" />
+    <Compile Include="OpCodes\NoOpOpCode.cs" />
+    <Compile Include="OpCodes\OpCodeDispatch.cs" />
+    <Compile Include="OpCodes\OutOpCode.cs" />
+    <Compile Include="OpCodes\PushOpCode.cs" />
+    <Compile Include="OpCodes\SetOpCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OpCodes\SVMOpCode.cs" />
+    <Compile Include="SynacorVM.cs" />
+    <Compile Include="SynacorVMException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
