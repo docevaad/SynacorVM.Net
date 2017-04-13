@@ -4,24 +4,24 @@ using System.IO;
 
 namespace SynacorVM.Net
 {
-    class Program
+    class SynacorVMMain
     {
         static void Main(string[] args)
         {
             if (args.Length != 1)
                 Fatal("Incorrect number of arguments.");
 
-            var vm = new SynacorVM();
+            var engine = new SynacorVMEngine(new SynacorVMContext());
             var opCodeDispatch = new OpCodeDispatch();
 
             using (FileStream fs = File.Open(args[0], FileMode.Open))
             {
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    vm.loadProgram(reader); 
+                    engine.loadProgram(reader); 
                 }
             }
-            vm.run();
+            engine.run();
             Console.ReadLine();
         }
 

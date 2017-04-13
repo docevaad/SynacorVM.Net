@@ -16,9 +16,9 @@ namespace SynacorVM.Net.OpCodes
             { SVMOpCode.Noop, new NoOpOpCode() }
         };
 
-        public void dispatchOpCode(SVMOpCode opcode, SynacorVM vm)
+        public void DispatchOpCode(SVMOpCode opcode, SynacorVMContext context)
         {
-            opCodeDispatch[opcode].dispatchOpCode(vm);
+            opCodeDispatch[opcode].DispatchOpCode(context);
         }
     }
 }

@@ -4,6 +4,6 @@ namespace SynacorVM.Net.OpCodes
 {
     public interface IOpCode
     {
-        void dispatchOpCode(SynacorVM vm);
+        void DispatchOpCode(SynacorVMContext context);
     }
 }

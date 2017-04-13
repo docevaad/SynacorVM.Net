@@ -9,10 +9,10 @@ namespace SynacorVM.Net.OpCodes
 {
     public class PushOpCode : IOpCode
     {
-        public void dispatchOpCode(SynacorVM vm)
+        public void DispatchOpCode(SynacorVMContext context)
         {
-            var value = vm.getNextMemoryAddress();
-            vm.pushOnToStack(value);
+            var value = context.PC.GetNextMemoryValue(context.Memory);
+            context.Stack.Push(value);
         }
     }
 }

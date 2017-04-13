@@ -9,7 +9,7 @@ namespace SynacorVM.Net.OpCodes
 {
     public class HaltOpcode : IOpCode
     {
-        public void dispatchOpCode(SynacorVM vm)
+        public void DispatchOpCode(SynacorVMContext context)
         {
             Console.WriteLine("Halted.");
             Environment.Exit(0);

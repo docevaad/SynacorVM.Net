@@ -1,19 +1,18 @@
 ﻿using System;
-using System.IO;
 
 namespace SynacorVM.Net.OpCodes
 {
     public class OutOpCode : IOpCode
     {
-        public void dispatchOpCode(SynacorVM vm)
+        public void DispatchOpCode(SynacorVMContext context)
         {
-            UInt16 outputChar;
-            var readValue = vm.getNextMemoryAddress();
+            ushort outputChar;
+            var memoryValue = context.PC.GetNextMemoryValue(context.Memory);
 
-            if (readValue > short.MaxValue)
-                outputChar = vm.getRegisterValue(readValue - short.MaxValue);
+            if (memoryValue.ValidRegister())
+                outputChar = context.Registers.GetRegister(memoryValue);
             else
-                outputChar = readValue;
+                outputChar = memoryValue;
 
             Console.Write($"{(char)outputChar}");
         }

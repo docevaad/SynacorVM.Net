@@ -49,13 +49,19 @@
     <Compile Include="OpCodes\NoOpOpCode.cs" />
     <Compile Include="OpCodes\OpCodeDispatch.cs" />
     <Compile Include="OpCodes\OutOpCode.cs" />
+    <Compile Include="OpCodes\PopOpCode.cs" />
     <Compile Include="OpCodes\PushOpCode.cs" />
     <Compile Include="OpCodes\SetOpCode.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="SynacorVMExtensions.cs" />
+    <Compile Include="SynacorVMMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OpCodes\SVMOpCode.cs" />
-    <Compile Include="SynacorVM.cs" />
+    <Compile Include="SynacorVMContext.cs" />
+    <Compile Include="SynacorVMEngine.cs" />
     <Compile Include="SynacorVMException.cs" />
+    <Compile Include="SynacorVMMemory.cs" />
+    <Compile Include="SynacorVMProgramCounter.cs" />
+    <Compile Include="SynacorVMRegisters.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

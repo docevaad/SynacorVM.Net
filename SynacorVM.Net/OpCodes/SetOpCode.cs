@@ -9,16 +9,11 @@ namespace SynacorVM.Net.OpCodes
 {
     public class SetOpCode : IOpCode
     {
-        public void dispatchOpCode(SynacorVM vm)
+        public void DispatchOpCode(SynacorVMContext context)
         {
-            var register = vm.getNextMemoryAddress();
-            if (register > short.MaxValue + 8)
-                throw new SynacorVMException($"Register value outside of range: {register}");
-
-            register -= (ushort) short.MaxValue;
-
-            var value = vm.getNextMemoryAddress();
-            vm.setRegisterValue(register, value);
+            var register = context.PC.GetNextMemoryValue(context.Memory);
+            var value = context.PC.GetNextMemoryValue(context.Memory);
+            context.Registers.SetRegister(register, value);
         }
     }
 }
