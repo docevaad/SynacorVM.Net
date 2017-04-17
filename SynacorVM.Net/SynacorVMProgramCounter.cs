@@ -17,6 +17,11 @@
 
             m_pc = address;
         }
+        
+        public ushort GetInstructionPointer()
+        {
+            return m_pc;
+        }
 
         public ushort GetNextMemoryValue(SynacorVMMemory memory)
         {

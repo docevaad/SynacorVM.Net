@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SynacorVM.Net.OpCodes
 {
-    public class JtOpCode : ISVMOpCode
+    public class NotOpCode : ISVMOpCode
     {
         public void DispatchOpCode(SynacorVMContext context)
         {
+            var destination = context.PC.GetNextMemoryValue(context.Memory);
             var value = context.PC.GetNextMemoryValue(context.Memory);
-            var address = context.PC.GetNextMemoryValue(context.Memory);
-            if (value != 0)
-                context.PC.SetInstructionPointer(address);
+            var result = ~value;
+            context.Registers.SetRegister(destination, (ushort)result);
         }
     }
 }

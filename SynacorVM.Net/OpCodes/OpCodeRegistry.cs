@@ -18,7 +18,20 @@ namespace SynacorVM.Net.OpCodes
             { SVMOpCode.Eq, new EqualOpCode() },
             { SVMOpCode.Gt, new GreaterThanOpCode() },
             { SVMOpCode.Jmp, new JumpOpCode() },
+            { SVMOpCode.Jt, new JtOpCode() },
+            { SVMOpCode.Jf, new JfOpCode() },
+            { SVMOpCode.Add, new AddOpCode() },
+            { SVMOpCode.Mult, new MultiplyOpCode() },
+            { SVMOpCode.Mod, new ModulusOpCode() },
+            { SVMOpCode.And, new AndOpCode() },
+            { SVMOpCode.Or, new OrOpCode() },
+            { SVMOpCode.Not, new NotOpCode() },
+            { SVMOpCode.Rmem, new ReadMemoryOpCode() },
+            { SVMOpCode.Wmem, new WriteMemoryOpCode() },
+            { SVMOpCode.Call, new CallOpCode() },
+            { SVMOpCode.Ret, new ReturnOpCode() },
             { SVMOpCode.Out, new OutOpCode() },
+            { SVMOpCode.In, new InOpCode() },
             { SVMOpCode.Noop, new NoOpOpCode() }
         };
 

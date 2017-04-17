@@ -44,17 +44,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOExtensions.cs" />
+    <Compile Include="OpCodes\AddOpCode.cs" />
+    <Compile Include="OpCodes\AndOpCode.cs" />
+    <Compile Include="OpCodes\CallOpCode.cs" />
     <Compile Include="OpCodes\EqualOpCode.cs" />
     <Compile Include="OpCodes\GreaterThanOpCode.cs" />
     <Compile Include="OpCodes\HaltOpcode.cs" />
+    <Compile Include="OpCodes\InOpCode.cs" />
     <Compile Include="OpCodes\ISVMOpCode.cs" />
+    <Compile Include="OpCodes\JfOpCode.cs" />
     <Compile Include="OpCodes\JtOpCode.cs" />
     <Compile Include="OpCodes\JumpOpCode.cs" />
+    <Compile Include="OpCodes\ModulusOpCode.cs" />
+    <Compile Include="OpCodes\MultiplyOpCode.cs" />
     <Compile Include="OpCodes\NoOpOpCode.cs" />
+    <Compile Include="OpCodes\NotOpCode.cs" />
     <Compile Include="OpCodes\OpCodeRegistry.cs" />
+    <Compile Include="OpCodes\OrOpCode.cs" />
     <Compile Include="OpCodes\OutOpCode.cs" />
     <Compile Include="OpCodes\PopOpCode.cs" />
     <Compile Include="OpCodes\PushOpCode.cs" />
+    <Compile Include="OpCodes\ReadMemoryOpCode.cs" />
+    <Compile Include="OpCodes\ReturnOpCode.cs" />
+    <Compile Include="OpCodes\WriteMemoryOpCode.cs" />
     <Compile Include="OpCodes\SetOpCode.cs" />
     <Compile Include="SynacorVMExtensions.cs" />
     <Compile Include="SynacorVMMain.cs" />
