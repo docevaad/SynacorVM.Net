@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SynacorVM.Net.OpCodes
 {
-    public class SetOpCode : IOpCode
+    public class SetOpCode : ISVMOpCode
     {
         public void DispatchOpCode(SynacorVMContext context)
         {

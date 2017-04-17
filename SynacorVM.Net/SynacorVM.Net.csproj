@@ -44,10 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOExtensions.cs" />
+    <Compile Include="OpCodes\EqualOpCode.cs" />
+    <Compile Include="OpCodes\GreaterThanOpCode.cs" />
     <Compile Include="OpCodes\HaltOpcode.cs" />
-    <Compile Include="OpCodes\IOpCode.cs" />
+    <Compile Include="OpCodes\ISVMOpCode.cs" />
+    <Compile Include="OpCodes\JtOpCode.cs" />
+    <Compile Include="OpCodes\JumpOpCode.cs" />
     <Compile Include="OpCodes\NoOpOpCode.cs" />
-    <Compile Include="OpCodes\OpCodeDispatch.cs" />
+    <Compile Include="OpCodes\OpCodeRegistry.cs" />
     <Compile Include="OpCodes\OutOpCode.cs" />
     <Compile Include="OpCodes\PopOpCode.cs" />
     <Compile Include="OpCodes\PushOpCode.cs" />

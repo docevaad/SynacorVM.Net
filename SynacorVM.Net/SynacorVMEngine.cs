@@ -17,7 +17,7 @@ namespace SynacorVM.Net
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <exception cref="SynacorVMEngine.Net.SynacorVMException">Program size exceeded main memory.</exception>
-        public void loadProgram(BinaryReader reader)
+        public void LoadProgram(BinaryReader reader)
         {
             var memoryAddress = 0;
             while(!reader.EOF())
@@ -32,10 +32,10 @@ namespace SynacorVM.Net
         /// <summary>
         /// Runs this instance.
         /// </summary>
-        public void run()
+        public void Run()
         {
             m_vmContext.PC.SetInstructionPointer(0);
-            var opcodeDispatch = new OpCodeDispatch();
+            var opcodeDispatch = new OpCodeRegistry();
             for (;;)
             {
                 ushort opcode = m_vmContext.PC.GetNextMemoryValue(m_vmContext.Memory);

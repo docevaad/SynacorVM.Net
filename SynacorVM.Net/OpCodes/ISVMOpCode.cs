@@ -2,7 +2,7 @@
 
 namespace SynacorVM.Net.OpCodes
 {
-    public interface IOpCode
+    public interface ISVMOpCode
     {
         void DispatchOpCode(SynacorVMContext context);
     }

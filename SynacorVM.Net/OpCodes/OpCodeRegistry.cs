@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace SynacorVM.Net.OpCodes
 {
-    public class OpCodeDispatch
+    public class OpCodeRegistry
     {
-        private static readonly Dictionary<SVMOpCode, IOpCode> opCodeDispatch = new Dictionary<SVMOpCode, IOpCode>
+        private static readonly Dictionary<SVMOpCode, ISVMOpCode> opCodeDispatch = new Dictionary<SVMOpCode, ISVMOpCode>
         {
             { SVMOpCode.Halt, new HaltOpcode() },
+            { SVMOpCode.Set, new SetOpCode() },
+            { SVMOpCode.Push, new PushOpCode() },
+            { SVMOpCode.Pop, new PopOpCode() },
+            { SVMOpCode.Eq, new EqualOpCode() },
+            { SVMOpCode.Gt, new GreaterThanOpCode() },
+            { SVMOpCode.Jmp, new JumpOpCode() },
             { SVMOpCode.Out, new OutOpCode() },
             { SVMOpCode.Noop, new NoOpOpCode() }
         };

@@ -12,16 +12,16 @@ namespace SynacorVM.Net
                 Fatal("Incorrect number of arguments.");
 
             var engine = new SynacorVMEngine(new SynacorVMContext());
-            var opCodeDispatch = new OpCodeDispatch();
+            var opCodeDispatch = new OpCodeRegistry();
 
             using (FileStream fs = File.Open(args[0], FileMode.Open))
             {
                 using (BinaryReader reader = new BinaryReader(fs))
                 {
-                    engine.loadProgram(reader); 
+                    engine.LoadProgram(reader); 
                 }
             }
-            engine.run();
+            engine.Run();
             Console.ReadLine();
         }
 
