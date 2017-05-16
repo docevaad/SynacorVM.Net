@@ -12,9 +12,7 @@ namespace SynacorVM.Net.OpCodes
         public void DispatchOpCode(SynacorVMContext context)
         {
             var register = context.PC.GetNextMemoryValue(context.Memory);
-            var value = context.PC.GetNextMemoryValue(context.Memory);
-            if (value.ValidRegister())
-                value = context.Registers.GetRegister(value);
+            var value = context.PC.GetNextMemoryValue(context.Memory).UnwrapPotentialRegister(context.Registers);
             context.Registers.SetRegister(register, value);
         }
     }

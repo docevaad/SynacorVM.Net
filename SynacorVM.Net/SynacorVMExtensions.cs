@@ -17,5 +17,12 @@
         {
             return (ushort)(register - (short.MaxValue + 1));
         }
+
+        public static ushort UnwrapPotentialRegister(this ushort potentialRegister, SynacorVMRegisters registers)
+        {
+            if (potentialRegister.ValidRegister())
+                return registers.GetRegister(potentialRegister);
+            return potentialRegister;
+        }
     }
 }

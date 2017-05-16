@@ -11,15 +11,8 @@ namespace SynacorVM.Net.OpCodes
         public void DispatchOpCode(SynacorVMContext context)
         {
             var dest = context.PC.GetNextMemoryValue(context.Memory);
-
-            var left = context.PC.GetNextMemoryValue(context.Memory);
-            if (left.ValidRegister())
-                left = context.Registers.GetRegister(left);
-
-            var right = context.PC.GetNextMemoryValue(context.Memory);
-            if (right.ValidRegister())
-                right = context.Registers.GetRegister(right);
-
+            var left = context.PC.GetNextMemoryValue(context.Memory).UnwrapPotentialRegister(context.Registers);
+            var right = context.PC.GetNextMemoryValue(context.Memory).UnwrapPotentialRegister(context.Registers);
             ushort result = 0;
             if (left == right)
                 result = 1;

@@ -10,10 +10,7 @@ namespace SynacorVM.Net.OpCodes
     {
         public void DispatchOpCode(SynacorVMContext context)
         {
-            var address = context.PC.GetNextMemoryValue(context.Memory);
-            if (address.ValidRegister())
-                address = context.Registers.GetRegister(address);
-
+            var address = context.PC.GetNextMemoryValue(context.Memory).UnwrapPotentialRegister(context.Registers);
             context.PC.SetInstructionPointer(address);
         }
     }

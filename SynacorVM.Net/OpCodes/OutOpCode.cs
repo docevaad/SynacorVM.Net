@@ -6,14 +6,8 @@ namespace SynacorVM.Net.OpCodes
     {
         public void DispatchOpCode(SynacorVMContext context)
         {
-            ushort outputChar;
-            var memoryValue = context.PC.GetNextMemoryValue(context.Memory);
-
-            if (memoryValue.ValidRegister())
-                outputChar = context.Registers.GetRegister(memoryValue);
-            else
-                outputChar = memoryValue;
-
+            var outputChar = context.PC.GetNextMemoryValue(context.Memory)
+                                .UnwrapPotentialRegister(context.Registers);
             Console.Write($"{(char)outputChar}");
         }
     }
