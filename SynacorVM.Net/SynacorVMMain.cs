@@ -12,8 +12,6 @@ namespace SynacorVM.Net
                 Fatal("Incorrect number of arguments.");
 
             var engine = new SynacorVMEngine(new SynacorVMContext());
-            var opCodeDispatch = new OpCodeRegistry();
-
             using (FileStream fs = File.Open(args[0], FileMode.Open))
             {
                 using (BinaryReader reader = new BinaryReader(fs))

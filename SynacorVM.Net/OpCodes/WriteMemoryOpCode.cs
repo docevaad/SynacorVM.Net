@@ -11,8 +11,13 @@ namespace SynacorVM.Net.OpCodes
         public void DispatchOpCode(SynacorVMContext context)
         {
             var destinationAddress = context.PC.GetNextMemoryValue(context.Memory);
-            var sourceRegister = context.PC.GetNextMemoryValue(context.Memory);
-            var value = context.Registers.GetRegister(sourceRegister);
+            if (destinationAddress.ValidRegister())
+                destinationAddress = context.Registers.GetRegister(destinationAddress);
+
+            var value = context.PC.GetNextMemoryValue(context.Memory);
+            if(value.ValidRegister())
+                value = context.Registers.GetRegister(value);
+
             context.Memory.StoreMemoryAddress(destinationAddress, value);
         }
     }

@@ -11,6 +11,10 @@ namespace SynacorVM.Net.OpCodes
         public void DispatchOpCode(SynacorVMContext context)
         {
             var addressToJumpTo = context.PC.GetNextMemoryValue(context.Memory);
+            //System.Diagnostics.Debug.WriteLine($"First address read: {addressToJumpTo}");
+            if (addressToJumpTo.ValidRegister())
+                addressToJumpTo = context.Registers.GetRegister(addressToJumpTo);
+
             context.Stack.Push(context.PC.GetInstructionPointer());
             context.PC.SetInstructionPointer(addressToJumpTo);
         }

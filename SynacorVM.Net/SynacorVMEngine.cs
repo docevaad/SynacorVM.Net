@@ -39,6 +39,7 @@ namespace SynacorVM.Net
             for (;;)
             {
                 ushort opcode = m_vmContext.PC.GetNextMemoryValue(m_vmContext.Memory);
+                //System.Diagnostics.Debug.WriteLine($"Opcode Executed: {opcode} {((SVMOpCode)opcode).ToString()} at {m_vmContext.PC.GetInstructionPointer()-1}");
                 opcodeDispatch.DispatchOpCode((SVMOpCode)opcode, m_vmContext);
             }
         }

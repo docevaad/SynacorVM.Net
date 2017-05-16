@@ -4,7 +4,7 @@
     {
         public static bool ValidMemoryAddress(this ushort address)
         {
-            return (address < short.MaxValue);
+            return (address < short.MaxValue + 1);
         }
 
         public static bool ValidRegister(this ushort register)
@@ -15,7 +15,7 @@
 
         public static ushort GetRegisterIndex(this ushort register)
         {
-            return (ushort)(register - short.MaxValue);
+            return (ushort)(register - (short.MaxValue + 1));
         }
     }
 }

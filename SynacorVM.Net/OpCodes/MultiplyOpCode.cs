@@ -12,8 +12,14 @@ namespace SynacorVM.Net.OpCodes
         {
             var destination = context.PC.GetNextMemoryValue(context.Memory);
             var left = context.PC.GetNextMemoryValue(context.Memory);
+            if (left.ValidRegister())
+                left = context.Registers.GetRegister(left);
+
             var right = context.PC.GetNextMemoryValue(context.Memory);
-            var result = (left * right) & 0x7FFF; // optimization for mod 32768
+            if (right.ValidRegister())
+                right = context.Registers.GetRegister(right);
+
+            var result = (left * right) % 32768;
             context.Registers.SetRegister(destination, (ushort)result);
         }
     }

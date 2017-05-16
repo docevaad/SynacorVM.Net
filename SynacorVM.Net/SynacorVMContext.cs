@@ -15,9 +15,9 @@ namespace SynacorVM.Net
 
         public SynacorVMContext()
         {
-            PC = new SynacorVMProgramCounter((ushort) short.MaxValue);
+            PC = new SynacorVMProgramCounter((ushort) short.MaxValue + 1);
             Registers = new SynacorVMRegisters();
-            Memory = new SynacorVMMemory((ushort) short.MaxValue);
+            Memory = new SynacorVMMemory((ushort) short.MaxValue + 1);
             Stack = new Stack<ushort>(50);
         }
     }

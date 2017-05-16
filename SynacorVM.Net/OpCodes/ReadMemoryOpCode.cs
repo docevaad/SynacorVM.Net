@@ -6,7 +6,10 @@
         {
             var destinationRegister = context.PC.GetNextMemoryValue(context.Memory);
             var sourceAddress = context.PC.GetNextMemoryValue(context.Memory);
-            var value = context.Memory.LoadMemoryAddress(sourceAddress);
+            if (sourceAddress.ValidRegister())
+                sourceAddress = context.Registers.GetRegister(sourceAddress);
+
+            var  value = context.Memory.LoadMemoryAddress(sourceAddress);
             context.Registers.SetRegister(destinationRegister, value);
         }
     }

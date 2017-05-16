@@ -12,7 +12,9 @@ namespace SynacorVM.Net.OpCodes
         {
             var destination = context.PC.GetNextMemoryValue(context.Memory);
             var value = context.PC.GetNextMemoryValue(context.Memory);
-            var result = ~value;
+            if (value.ValidRegister())
+                value = context.Registers.GetRegister(value);
+            var result = ~value & 0x7FFF;
             context.Registers.SetRegister(destination, (ushort)result);
         }
     }

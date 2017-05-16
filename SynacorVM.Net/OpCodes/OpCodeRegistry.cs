@@ -9,7 +9,7 @@ namespace SynacorVM.Net.OpCodes
 {
     public class OpCodeRegistry
     {
-        private static readonly Dictionary<SVMOpCode, ISVMOpCode> opCodeDispatch = new Dictionary<SVMOpCode, ISVMOpCode>
+        private static readonly Dictionary<SVMOpCode, ISVMOpCode> m_OpCodeRegistry = new Dictionary<SVMOpCode, ISVMOpCode>
         {
             { SVMOpCode.Halt, new HaltOpcode() },
             { SVMOpCode.Set, new SetOpCode() },
@@ -37,7 +37,7 @@ namespace SynacorVM.Net.OpCodes
 
         public void DispatchOpCode(SVMOpCode opcode, SynacorVMContext context)
         {
-            opCodeDispatch[opcode].DispatchOpCode(context);
+            m_OpCodeRegistry[opcode].DispatchOpCode(context);
         }
     }
 }

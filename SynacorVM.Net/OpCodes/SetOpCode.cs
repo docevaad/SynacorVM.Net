@@ -13,6 +13,8 @@ namespace SynacorVM.Net.OpCodes
         {
             var register = context.PC.GetNextMemoryValue(context.Memory);
             var value = context.PC.GetNextMemoryValue(context.Memory);
+            if (value.ValidRegister())
+                value = context.Registers.GetRegister(value);
             context.Registers.SetRegister(register, value);
         }
     }
